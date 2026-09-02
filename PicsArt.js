@@ -6,7 +6,7 @@ $done({
                 "status": "SUBSCRIPTION_PURCHASED",
                 "order_id": "490001314520000",
                 "original_order_id": "490001314520000",
-                "is_trial": true,
+                "is_trial": false,
                 "plan_meta": {
                     "storage_limit_in_mb": 20480,
                     "frequency": "yearly",
@@ -30,8 +30,8 @@ $done({
                 "reason": "ok",
                 "subscription_id": "com.picsart.editor.subscription_yearly",
                 "is_eligible_for_introductory": false,
-                "purchase_date": 1687020148000,
-                "expire_date": 4092599349000
+                "purchase_date": Date.now(),
+                "expire_date": Date.now() + 315360000000
             }
         ]
     })
