@@ -17,26 +17,26 @@ obj.current_subs.purchase_date = "2019-10-10T16:32:10.254954Z";
 
 // Bật tất cả tính năng Lightroom
 obj.current_subs.sao = {
-    "inpkg_CCES": "0",    // không cần
+    "inpkg_CCES": "1",    // không cần
     "inpkg_CCLE": "1",    // Cloud Libraries
-    "inpkg_CCSN": "0",
-    "inpkg_CCSV": "0",
+    "inpkg_CCSN": "1",
+    "inpkg_CCSV": "1",
     "inpkg_LCCC": "1",    // Lightroom CC (cốt lõi)
-    "inpkg_LPES": "0",
+    "inpkg_LPES": "1",
     "inpkg_LRBRL": "1",   // Bộ lọc
     "inpkg_LRMAC": "1",   // Lightroom trên Mac
     "inpkg_LRMC": "1",    // Lightroom Mobile
     "inpkg_LRMP": "1",    // Lightroom Premium (quan trọng)
     "inpkg_LRTB": "1",    // Lightroom trên web?
-    "inpkg_PHLT": "0",
-    "inpkg_PHLT2": "0",
-    "inpkg_PLES": "0",
+    "inpkg_PHLT": "1",
+    "inpkg_PHLT2": "1",
+    "inpkg_PLES": "1",
     "storage_quota": "100"
 };
 
 // Đặt dung lượng 1TB
 obj.entitlement.storage = {
-    "used": 0,
+    "used": 1,
     "limit": 1154487209165,   // ~1.07TB
     "display_limit": 1099511627776,
     "warn": 992137445376
