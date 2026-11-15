@@ -1,25 +1,27 @@
 let body = $response.body;
 
 if (typeof body === "string" && body.length > 0) {
-  // Удаление строки while из ответа
+  // Xóa các dòng điều khiển while nếu có trong phản hồi
   body = body.replace(/^\s*while[^\n]*\n/gm, "");
 
   try {
     let obj = JSON.parse(body);
 
-    // Принудительная установка статуса подписки Premium
+    // Buộc trạng thái gói thành Premium
     obj.entitlement = obj.entitlement || {};
     obj.entitlement.status = "subscriber";
-    obj.entitlement.name = "Lightroom Premium";
+    obj.entitlement.name = "Creative Cloud Premium";
     obj.entitlement.level = "premium";
 
-    // Подмена данных текущей подписки
+    // Thay gói Creative Cloud Standard bằng Creative Cloud Premium
     obj.current_subs = obj.current_subs || {};
-    obj.current_subs.product_id = "lightroom_premium";
+    obj.current_subs.product_id = "creative_cloud_premium";
     obj.current_subs.store = "adobe";
     obj.current_subs.purchase_date = "2019-10-10T16:32:10.254954Z";
+    obj.current_subs.subscription_name = "Creative Cloud Premium";
+    obj.current_subs.plan_type = "premium";
 
-    // Включение всех флагов функций Lightroom
+    // Bật toàn bộ cờ tính năng Creative Cloud Premium
     obj.current_subs.sao = {
       "inpkg_CCES": "1",
       "inpkg_CCLE": "1",
@@ -35,10 +37,12 @@ if (typeof body === "string" && body.length > 0) {
       "inpkg_PHLT": "1",
       "inpkg_PHLT2": "1",
       "inpkg_PLES": "1",
+      "inpkg_CCAP": "1",
+      "inpkg_CCALL": "1",
       "storage_quota": "100"
     };
 
-    // Установка лимита хранилища 1 ТБ
+    // Đặt giới hạn dung lượng lưu trữ 1 TB
     obj.entitlement.storage = {
       "used": 1,
       "limit": 1154487209165,
@@ -46,21 +50,22 @@ if (typeof body === "string" && body.length > 0) {
       "warn": 992137445376
     };
 
-    // Скрытие аватара
+    // Ẩn avatar
     obj.avatar = obj.avatar || {};
     obj.avatar.placeholder = true;
 
-    // Дополнительные поля плана
+    // Bổ sung trường gói và cấp
     obj.plan = "premium";
-    obj.tier = "lightroom";
+    obj.tier = "creative_cloud";
+    obj.subscription = "Creative Cloud Premium";
 
-    // Возврат изменённого JSON
+    // Trả về JSON đã chỉnh sửa
     $done({ body: JSON.stringify(obj) });
   } catch (e) {
-    // Возврат исходного тела при ошибке разбора JSON
+    // Trả về body gốc nếu lỗi phân tích JSON
     $done({ body });
   }
 } else {
-  // Пустой ответ
+  // Phản hồi rỗng
   $done({});
 }
