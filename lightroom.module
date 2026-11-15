@@ -1,15 +1,24 @@
-#!name=Lightroom Premium
-#!desc=Mở khóa tính năng Premium cho Adobe Lightroom
-#!author=quocchienn (trích xuất từ Shadowrocket )
+#!name=Lightroom Premium Full Unlock
+#!desc=Mở khóa toàn bộ tính năng Premium Adobe Lightroom Mobile
+#!author=quocchienn
+#!system=ios
 
 [General]
-bypass-system = true
-skip-proxy = *.local, *.crashlytics.com
+bypass-system = false
+skip-proxy = *.local, *.crashlytics.com, captive.apple.com
 tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+dns-server = system
 
 [Script]
-Lightroom = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/accounts,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=-1
+Lightroom-Accounts = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/accounts,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
+Lightroom-Subs = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/subscriptions,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
+Lightroom-Entitlements = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/entitlements,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
+Lightroom-Profile = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/profile,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
+Lightroom-Me = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/me,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
+Lightroom-Commerce = type=http-response,pattern=^https:\/\/photos\.adobe\.io\/v\d\/commerce,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/QuocChienn2709/quocchiennshadowrocket/refs/heads/main/lightroom.js,script-update-interval=86400
 
 [MITM]
-hostname = photos.adobe.io
+hostname = photos.adobe.io, cc-api-data.adobe.io, lcs-cops.adobe.io, ims-na1.adobelogin.com
 enable = true
+ca-passphrase = 
+ca-p12 =
